@@ -36,8 +36,8 @@ function create(skill, callback) {
 
 const findById = (id, callback) =>{
   try {
-    const todo = todos.find(todo => todo._id === parseInt(id))
-    if (!todo) throw new Error ('No todo was found')
+    const todo = skills.find(skill => skill._id === parseInt(id))
+    if (!skill) throw new Error ('No todo was found')
     return callback(null, todo)
   } catch (error) {
     console.log(error)
@@ -53,7 +53,7 @@ const find = (conditions, callback) => {
       throw new TypeError('Please pass in an object')
     }
     // If the object is empty, return all the todos
-    if (Object.keys(conditions).length === 0) return callback(null, todos)
+    if (Object.keys(conditions).length === 0) return callback(null, skills)
 	// deal with errors
   } catch (error) {
     console.log(error)
