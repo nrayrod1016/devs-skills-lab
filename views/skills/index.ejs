@@ -8,26 +8,26 @@
   <title>Express To-Do</title>
 </head>
 <body>
-  <h1>Todos as of <%= time %></h1>
+  <h1>Skills as of <%= time %></h1>
   <% if(error) { %>
     <h2><%= error %></h2>
   <% } %>
   <ul>
-    <% todos.forEach(function(todo) { %>
+    <% skills.forEach(function(skill) { %>
       <li>
         <form 
-          action="/todos/<%= todo._id %>?_method=DELETE"
+          action="/todos/<%= skill._id %>?_method=DELETE"
           class='delete-form'
           method="POST"
         >
           <button type="submit">X</button>
         </form>
-        <a href="/todos/<%= todo._id %>"><%= todo.text %></a>
+        <a href="/todos/<%= skill._id %>"><%= skill.text %></a>
           - 
-        <%= todo.done ? 'done' : 'not done' %>
+        <%= skill.done ? 'done' : 'not done' %>
       </li>
     <% }) %>
   </ul>
-  <a href="/todos/new">Add To-Do</a>
+  <a href="/skills/new">Add To-Do</a>
 </body>
 </html>
