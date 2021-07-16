@@ -5,32 +5,32 @@ export {
   findByIdAndDelete
 }
 
-const todos = [
-  {text: 'Feed llama', done: true, _id: 125223},
-  {text: 'Sleep under the stars', done: false, _id: 127904},
-  {text: 'Buy milk', done: false, _id: 139608},
+const skills = [
+  {text: 'HTML5', done: true, _id: 125223},
+  {text: 'CSS', done: true, _id: 127904},
+  {text: 'JAVASCRIPT', done: false, _id: 139608},
 ]
 
 function findByIdAndDelete(id, callback) {
   try { 
     // Find the index based on the _id of the todo object
-    const idx = todos.findIndex(todo => todo._id == parseInt(id))
-    const deletedTodo = todos.splice(idx, 1)
-    if (!deletedTodo.length ) throw new Error ('No todo was deleted')
-    return callback(null, deletedTodo[0])
+    const idx = skills.findIndex(skill => skill._id == parseInt(id))
+    const deletedSkill = skill.splice(idx, 1)
+    if (!deletedSkill.length ) throw new Error ('No skill was deleted')
+    return callback(null, deletedSkill[0])
   } catch(error) {
     return callback(error, null)
   }
 }
 
-function create(todo, callback) {
+function create(skill, callback) {
   // Add the id (random)
-  todo._id = Date.now() % 1000000
+  skill._id = Date.now() % 1000000
   // Set new todos as false
   todo.done = false
-  console.log(todo)
-  todos.push(todo)
-  return callback(null, todo)
+  console.log(skill)
+  skills.push(skill)
+  return callback(null, skill)
 }
 
 
