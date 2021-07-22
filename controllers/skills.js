@@ -1,4 +1,4 @@
-import * as skillDb from '../data/todo-db.js'
+import * as skillDb from '../data/skill-db.js'
 
 
 export {
@@ -10,7 +10,7 @@ export {
 }
 
 function deleteSkill(req, res) {
-  skillDb.findByIdAndDelete(req.params.id, function (error, skill) {
+  skillDb.findByIdAndDelete(req.params.id, function(error, skill) {
     res.redirect('/skills')
   })
 }

@@ -7,15 +7,15 @@ export {
 
 const skills = [
   {text: 'HTML5', done: true, _id: 125223},
-  {text: 'CSS', done: true, _id: 127904},
-  {text: 'JAVASCRIPT', done: false, _id: 139608},
+  {text: 'CSS', done: false, _id: 127904},
+  {text: 'JS', done: false, _id: 139608},
 ]
 
 function findByIdAndDelete(id, callback) {
   try { 
     // Find the index based on the _id of the todo object
     const idx = skills.findIndex(skill => skill._id == parseInt(id))
-    const deletedSkill = skill.splice(idx, 1)
+    const deletedSkill = skills.splice(idx, 1)
     if (!deletedSkill.length ) throw new Error ('No skill was deleted')
     return callback(null, deletedSkill[0])
   } catch(error) {
@@ -23,27 +23,29 @@ function findByIdAndDelete(id, callback) {
   }
 }
 
+
 function create(skill, callback) {
   // Add the id (random)
   skill._id = Date.now() % 1000000
   // Set new todos as false
-  todo.done = false
+  skill.done = false
   console.log(skill)
-  skills.push(skill)
+skills.push(skill)
   return callback(null, skill)
 }
 
 
 const findById = (id, callback) =>{
   try {
-    const todo = skills.find(skill => skill._id === parseInt(id))
-    if (!skill) throw new Error ('No todo was found')
-    return callback(null, todo)
+    const skill = skills.find(skill => skill._id === parseInt(id))
+    if (!skill) throw new Error ('No skill was found')
+    return callback(null, skill)
   } catch (error) {
     console.log(error)
     return callback(error, null)
   }
 }
+
 
 const find = (conditions, callback) => {
   // see if this works, if not, execute the code in the catch block
